@@ -30,9 +30,9 @@ def lmean_threshold(img, w_size=15):
 
     # Computing integral image
     # Leaving first row and column in zero for convenience
-    integ = np.zeros((i_rows, i_cols), np.float)
+    integ = np.zeros((i_rows, i_cols), np.float32)
 
-    integ[1:, 1:] = np.cumsum(np.cumsum(img.astype(np.float), axis=0), axis=1)
+    integ[1:, 1:] = np.cumsum(np.cumsum(img.astype(np.float32), axis=0), axis=1)
 
     # Defining grid
     x, y = np.meshgrid(np.arange(1, i_cols), np.arange(1, i_rows))

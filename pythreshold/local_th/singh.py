@@ -31,7 +31,7 @@ def singh_threshold(img, w_size=15, k=0.85):  # 0.35
     @return: The estimated local threshold for each pixel
     @rtype: ndarray
     """
-    img = img.astype(np.float) / 255
+    img = img.astype(np.float32) / 255
 
     # Obtaining rows and cols
     rows, cols = img.shape
@@ -39,9 +39,9 @@ def singh_threshold(img, w_size=15, k=0.85):  # 0.35
 
     # Computing integral images
     # Leaving first row and column in zero for convenience
-    integ = np.zeros((i_rows, i_cols), np.float)
+    integ = np.zeros((i_rows, i_cols), np.float32)
 
-    integ[1:, 1:] = np.cumsum(np.cumsum(img.astype(np.float), axis=0), axis=1)
+    integ[1:, 1:] = np.cumsum(np.cumsum(img.astype(np.float32), axis=0), axis=1)
 
     # Defining grid
     x, y = np.meshgrid(np.arange(1, i_cols), np.arange(1, i_rows))
