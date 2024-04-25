@@ -19,3 +19,11 @@ resources/
 
 # Ignoring TODO file
 TODO
+
+dist/
+
+*.whl
+*.tar.gz
+*.pyc
+
+*.egg-info/

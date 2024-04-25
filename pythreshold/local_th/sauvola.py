@@ -35,11 +35,11 @@ def sauvola_threshold(img, w_size=15, k=0.35):
 
     # Computing integral images
     # Leaving first row and column in zero for convenience
-    integ = np.zeros((i_rows, i_cols), np.float)
-    sqr_integral = np.zeros((i_rows, i_cols), np.float)
+    integ = np.zeros((i_rows, i_cols), np.float32)
+    sqr_integral = np.zeros((i_rows, i_cols), np.float32)
 
-    integ[1:, 1:] = np.cumsum(np.cumsum(img.astype(np.float), axis=0), axis=1)
-    sqr_img = np.square(img.astype(np.float))
+    integ[1:, 1:] = np.cumsum(np.cumsum(img.astype(np.float32), axis=0), axis=1)
+    sqr_img = np.square(img.astype(np.float32))
     sqr_integral[1:, 1:] = np.cumsum(np.cumsum(sqr_img, axis=0), axis=1)
 
     # Defining grid
